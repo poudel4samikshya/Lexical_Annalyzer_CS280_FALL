@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/sammy/CLionProjects/Lexical_Annalyzer_CS280_FALL/lex.cpp
+iostream
+-
+cctype
+-
+lex.h
+/Users/sammy/CLionProjects/Lexical_Annalyzer_CS280_FALL/lex.h
+
+/Users/sammy/CLionProjects/Lexical_Annalyzer_CS280_FALL/lex.h
+string
+-
+iostream
+-
+map
+-
+
+/Users/sammy/CLionProjects/Lexical_Annalyzer_CS280_FALL/main.cpp
+iostream
+-
+fstream
+-
+map
+-
+string
+-
+sstream
+-
+vector
+-
+algorithm
+-
+lex.h
+/Users/sammy/CLionProjects/Lexical_Annalyzer_CS280_FALL/lex.h
+

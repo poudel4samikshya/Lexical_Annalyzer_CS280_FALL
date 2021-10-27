@@ -1,0 +1,5 @@
+FLOAT x1, y1, x2, y2, x3, y_3, a, b_, r;	
+string str1, str_2;
+INT x, _z,y,z;
+#Read data
+r = 5;

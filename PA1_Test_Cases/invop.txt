@@ -1,0 +1,9 @@
+PLUS
+MULT
+DIV
+MINUS
+REM
+ASSOP
+EQUAL
+GTHAN
+Error in line 5 (<)

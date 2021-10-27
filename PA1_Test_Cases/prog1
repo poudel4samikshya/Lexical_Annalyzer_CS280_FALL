@@ -1,0 +1,20 @@
+PROGRAM circle
+	#Variable declarations
+	FLOAT r, a, p, b; 	
+	STRING str1, str2;
+	# Read data
+	WRITE "Please the two radius values circle";
+	R = 8;
+	P = 0;
+	A = 0;
+	B = -1
+	IF ( r > 5)
+	BEGIN
+	  a = (3.14) * r * r;
+	  IF (a > 100)
+	     p = 2 * 3.14 * b; 
+	  
+	END
+	#Display the results
+	WRITE "The output results are " , R, p, b;
+END PROGRAM 

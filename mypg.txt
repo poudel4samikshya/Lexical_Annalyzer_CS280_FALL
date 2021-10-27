@@ -1,0 +1,239 @@
+#include<iostream>
+#include <fstream>
+#include <map>
+#include<sstream>
+#include "lex.h"
+
+using namespace std;
+
+LexItem getNextToken(istream&, int&);
+LexItem id_or_kw(const string&, int );
+ostream& operator<<(ostream&, const LexItem& );
+
+int main(int argc, char * argv[])
+{
+
+    fstream input_file;
+    input_file.open(argv[1]);
+    string line;
+    LexItem tok;
+
+
+    bool vflag = false;
+    bool intflag = false;
+    bool fflag = false;
+    bool strflag = false;
+    bool idflag = false;
+
+    int token_count = 0;
+    Token token;
+    string lex;
+    int num_lines = 0;
+
+
+    stringstream ss;
+    for( int i=1; i<argc; i++ ) {
+
+        ss << argv[i];
+        string str = ss.str();
+
+        if (argv[i][0] != '-'){
+            cout<<"ONLY ONE FILE NAME ALLOWED"<<endl;
+            exit(1);
+        }
+        if(argv[i][0] == '-'){
+            cout<<argv[i]<<endl;
+            if(str == "-v")
+                vflag = true;
+            else if(str == "-intconst")
+                intflag = true;
+
+            else if (str == "-fconst")
+                fflag = true;
+
+            else if (str == "-strconst")
+                strflag = true;
+
+            else if (str == "-ident")
+                idflag = true;
+
+
+            else {
+                cout<<"UNRECOGNIZED FLAG "<<argv[i]<<endl;
+            }
+
+
+        }
+    }
+    while( (tok = getNextToken(input_file, num_lines)) != DONE && tok != ERR ) {
+        token = tok.GetToken();
+        lex = tok.GetLexeme();
+        num_lines = tok.GetLinenum();
+
+       if(vflag){
+
+           if(tok == IDENT || tok == ICONST || tok == RCONST || tok == SCONST){
+               cout<<tokenPrint[tok.GetToken()]<<" ("<<tok.GetLexeme()<<")"<<endl;
+           }
+           else
+               cout<<tokenPrint[tok.GetToken()]<<endl;
+       }
+
+        if (intflag) {
+
+            cout << "FLOATS:" << endl;
+            cout << tok.GetLexeme() << endl;
+
+
+        }
+        if (fflag) {
+            cout << "REALS:" << endl;
+            cout << tok.GetLexeme() << endl;
+        }
+
+        if (strflag) {
+            cout << "STRINGS:" << endl;
+            cout << tok.GetLexeme() << endl;
+
+        }
+        if (idflag) {
+            cout << "IDENTIFERS:" << endl;
+            cout << tok.GetLexeme() << endl;
+        }
+
+    }
+
+
+
+//handeling error
+if (tok == ERR){
+    cout<<"Error in line "<<tok.GetLinenum()<<" ("<<tok.GetLexeme()<<")"<<endl;
+    exit(1);
+
+}
+if (tok == DONE){
+
+    if (intflag) {
+
+        cout << "FLOATS:" << endl;
+        cout << tok.GetLexeme() << endl;
+
+    }
+    if (fflag) {
+        cout << "REALS:" << endl;
+        cout << tok.GetLexeme() << endl;
+    }
+
+    if (strflag) {
+        cout << "STRINGS:" << endl;
+        cout << tok.GetLexeme() << endl;
+
+    }
+    if (idflag) {
+        cout << "IDENTIFERS:" << endl;
+        cout << tok.GetLexeme() << endl;
+    }
+
+    if (vflag) {
+        cout << tokenPrint[tok.GetToken()] << "(" << tok.GetLexeme() << " )" << endl;
+        token_count++;
+
+    }
+
+
+
+
+
+
+
+
+}
+
+
+
+}
+
+
+// functions that are implemented
+
+
+static map<string,Token>::iterator it;
+LexItem id_or_kw(const string& lexeme, int linenum) {
+    for (it = kwmap.begin(); it != kwmap.end(); it++) {
+        if (it->first == lexeme)
+            return (LexItem(it->second, lexeme, linenum));
+
+
+
+    }
+    return LexItem( (LexItem(IDENT, lexeme, linenum)););
+}
+
+
+ostream& operator<<(ostream& out, const LexItem& tok){
+    string str_token = tokenPrint[tok.GetToken()];
+    string lexeme = tok.GetLexeme();
+    int line_num = tok.GetLinenum();
+
+    if (str_token == "IDENT" || str_token == "ICONST" || str_token == "SCONST"  || str_token == "RCONST" || str_token == "ERR"){
+        out<<str_token<<" ("<<lexeme<<")";
+    }
+
+
+    return out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
