@@ -39,7 +39,7 @@ ostream& operator<<(ostream& out, const LexItem& tok){
 }
 
 int main(int argc, char* argv[]) {
-    //cout<<argv[0]<<endl;
+   
     ifstream input_file;
     input_file.open(argv[1]);
 
@@ -325,11 +325,7 @@ int main(int argc, char* argv[]) {
 
 
 
-
-
-
-
-}//
+}//end of main function
 
 
 
