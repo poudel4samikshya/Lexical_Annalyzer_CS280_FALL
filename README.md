@@ -1,8 +1,8 @@
 # Lexical_Annalyzer_CS280_FALL
 
 # Puropse of the project:
-  The main purpose of this project is to build the lexical analyzer for the simple language in C++. The follow up projects for this project will be building the parser and Interpreter 
-  for the project.
+  The main purpose of this project is to build the lexical analyzer for the simple language in C++. The follow up projects for this project will be building the parser and Interpreter for the project.
+
 
 # About the project:
 
@@ -96,6 +96,15 @@ An error will be denoted by the ERR token.
  
 
 End of file will be denoted by the DONE token.
+
+# Main files
+1) Main.cpp : It is the driver code that calls the getnexttoken fuction to get the token from from the testfile and display if it belongs to the the language.
+
+2) lex.cpp: It is the cpp file that contains getnexttoken fuction and examines word that belongs to the laguages and returns the result.
+
+# Additional files
+1) lex.h
+2) test cases
 
 # concepts that are used in this project:
 
