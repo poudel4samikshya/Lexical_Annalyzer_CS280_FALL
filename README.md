@@ -100,7 +100,7 @@ End of file will be denoted by the DONE token.
 # Main files
 1) Main.cpp : It is the driver code that calls the getnexttoken fuction to get the token from from the testfile and display if it belongs to the the language.
 
-2) lex.cpp: It is the cpp file that contains getnexttoken fuction and examines word that belongs to the laguages and returns the result.
+2) lex.cpp: It is the cpp file that contains getnexttoken fuction and examines if the word belongs to the laguage or not and returns the result.
 
 # Additional files
 1) lex.h
